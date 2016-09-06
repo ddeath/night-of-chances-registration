@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cameraContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal|top">
+
+    <FrameLayout
+        android:id="@+id/cameraPreview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="179dp"
+        android:layout_height="179dp"
+        android:id="@+id/scanner_transparent_logo"
+        android:layout_gravity="center"
+        android:src="@drawable/nexteria_transparent_gray"
+        android:contentDescription="@null"
+        android:visibility="visible"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="false"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Scanning..."
+        android:id="@+id/scanner_status_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_alignParentTop="false"
+        android:layout_below="@+id/scanner_transparent_logo"
+        android:background="#22ffffff" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical"
+        android:id="@+id/attendee_checkin_info_view"
+        android:gravity="top"
+        android:background="#ffffff"
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="attendee_name"
+            android:id="@+id/attendee_name_text"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/ticket_type"
+            android:id="@+id/ticket_type_label"
+            android:layout_marginTop="22dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="EARLY_BIRD"
+            android:id="@+id/ticket_type_text"
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/attendee_note"
+            android:id="@+id/attendee_note_label"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/attendee_note_text"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/events"
+            android:id="@+id/events_label"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/attendee_events_list"
+                android:choiceMode="none" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Loading..."
+                android:id="@+id/loading_attendee_events_text"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/close"
+            android:id="@+id/attendee_info_close_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

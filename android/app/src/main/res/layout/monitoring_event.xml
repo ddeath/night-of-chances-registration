@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/attendee_present_checkbox" />
+
+        <TextView
+            android:id="@+id/monitoring_attendee_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_gravity="left|center_vertical"
+            android:gravity="left|center_vertical|fill_vertical"
+            android:textSize="20sp"
+            android:layout_alignWithParentIfMissing="false"
+            android:text="aaaaaaaa"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/attendee_present_icon" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/monitoring_attendee_call_button"
+                android:layout_gravity="right"
+                android:src="@android:drawable/sym_action_call"
+                android:contentDescription="@string/call_attendee"
+                android:layout_alignParentRight="true"
+                android:background="#454f92" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'NxNoC'
+            keyPassword 'knight_of_chances'
+            storeFile file('/home/ddeath/.ssh/android/nxnoc.jks')
+            storePassword 'knight_of_chances'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "nexteria.nxnoc"
+        minSdkVersion 9
+        targetSdkVersion 10
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile files('libs/zbar.jar')
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.firebase:firebase-client-android:2.5.2+'
+    compile 'com.android.support:design:23.2.1'
+}

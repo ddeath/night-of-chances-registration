@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NxNoC</string>
+    <string name="check_in_scan">Check-in QR</string>
+    <string name="check_in_by_name">Check-in by name</string>
+    <string name="close">Close</string>
+    <string name="events">Events:</string>
+    <string name="ticket_type">Ticket type:</string>
+    <string name="stats">Program</string>
+    <string name="connecting">Connecting...</string>
+    <string name="program">Program</string>
+    <string name="title_activity_program">ProgramActivity</string>
+    <string name="miestnos">Miestnosť</string>
+    <string name="event_type">Event type</string>
+    <string name="od_do">Od - Do</string>
+    <string name="attendance">Účasť</string>
+    <string name="call">Call</string>
+    <string name="loading">Loading...</string>
+    <string name="attendee_note">Poznámka:</string>
+    <string name="call_attendee">Call attendee</string>
+    <string name="check_in_name">Check-in Name</string>
+</resources>
