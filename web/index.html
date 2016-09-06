@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>NxNoc</title>
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/nxnoc.css">
+	<script src="js/handlebars.min-latest.js"></script>
+	<script src="js/typeahead.min.js"></script>
+	<script src="js/uuid.js"></script>
+	<script src="js/checkinSearchModule.js"></script>
+	<script src="js/registerModule.js"></script>
+	<script src="js/notify.min.js"></script>
+	<script src="js/nxnoc.js"></script>
+</head>
+<body>
+	<div class="login-container">
+		<div class="login">
+			<img src="img/noc_logo.png" />
+			<form method="post">
+				<input type="email" id="email" name="email" placeholder="Email" required="required" class="input-txt" />
+				<input type="password" id="password" name="password" placeholder="Password" required="required" class="input-txt" />
+				<div class="login-footer">
+					<button type="button" id="login_button" class="btn btn--right">Sign in</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<section class="checkin-by-name hidden">
+		<img src="img/noc_logo.png" class="logo" />
+		<div class="sw">
+			<form class="search-form">
+				<input id="search-input" type="search" class="search" placeholder="Search..." />
+				<button class="go" disabled><span class="glyphicon glyphicon-search"></span></button>
+			</form>
+		</div>
+		<div class="people-add">
+			<img src="img/people_add.png" />
+		</div>
+		<div class="modal fade" id="check-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="attendee-name">Modal title</h4>
+					</div>
+					<div class="modal-body">
+						<label>Ticket type:</label>
+						<div id="ticket-type"></div>
+
+						<label>Poznámka:</label>
+						<ul id="notes"></ul>
+
+						<label>Events:</label>
+						<div id="events"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="registration hidden">
+		<img src="img/noc_logo.png" class="logo" />
+		<div class="people-search">
+			<img src="img/people_search.png" />
+		</div>
+
+		<form class="add-people">
+			<div class="form-group">
+				<label>Meno a priezvisko:</label>
+				<input class="form-control" type="text" name="name" />
+			</div>
+			
+			<div class="form-group">
+				<label>Email:</label>
+				<input class="form-control" type="email" name="attendee_email" />
+			</div>
+
+			<div class="form-group">
+				<label>Telefón:</label>
+				<input class="form-control" type="text" name="phone" />
+			</div>
+
+			<div class="form-group">
+				<label>Škola:</label>
+				<input class="form-control" type="text" name="school" />
+			</div>
+
+			<div class="form-group">
+				<label>Ročník:</label>
+				<input class="form-control" type="text" name="school_year" />
+			</div>
+
+			<div class="form-group submit-button-container">
+				<button class="btn btn-primary" id="register-attendee" type="button">Pridať</button>
+			</div>
+		</form>
+		
+	</section>
+</body>
+</html>
