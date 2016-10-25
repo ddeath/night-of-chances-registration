@@ -41,6 +41,9 @@
 		<div class="people-add">
 			<img src="img/people_add.png" />
 		</div>
+		<div class="stats-show">
+			<img src="img/stats.png" />
+		</div>
 		<div class="modal fade" id="check-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -66,11 +69,39 @@
 		</div>
 	</section>
 
+	<section class="stats-section hidden">
+		<img src="img/noc_logo.png" class="logo" />
+		<div class="attendees-count"></div>
+		<div class="people-search">
+			<img src="img/people_search.png" />
+		</div>
+		<div class="people-add">
+			<img src="img/people_add.png" />
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Názov eventu</th>
+					<th class="second-header">
+						<div>Počet účastníkov na mieste</div>
+						<div>(vybratí + náhradníci)</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody class="stats-container">
+			</tbody>
+		</table>
+	</section>
+
 	<section class="registration hidden">
 		<img src="img/noc_logo.png" class="logo" />
 		<div class="attendees-count"></div>
 		<div class="people-search">
 			<img src="img/people_search.png" />
+		</div>
+		<div class="stats-show">
+			<img src="img/stats.png" />
 		</div>
 
 		<form class="add-people">

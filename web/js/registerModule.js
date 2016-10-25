@@ -3,11 +3,19 @@ function initRegistration(){
 
 	$('.people-add').click(function(){
 		$('.checkin-by-name').addClass('hidden', 'slow');
+		$('.stats-section').addClass('hidden', 'slow');
 		$('.registration').removeClass('hidden', 'slow');
+	});
+
+	$('.stats-show').click(function(){
+		$('.checkin-by-name').addClass('hidden', 'slow');
+		$('.registration').addClass('hidden', 'slow');
+		$('.stats-section').removeClass('hidden', 'slow');
 	});
 
 	$('.people-search').click(function(){
 		$('.checkin-by-name').removeClass('hidden', 'slow');
+		$('.stats-section').addClass('hidden', 'slow');
 		$('.registration').addClass('hidden', 'slow');
 	});
 

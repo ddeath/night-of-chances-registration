@@ -61,5 +61,43 @@ function login(){
 
 		$('.attendees-count').text(checkedIn + '/' + totalCount);
 	})
+
+	var dbRef = new Firebase("https://nxnoc.firebaseio.com/events");
+	dbRef.on('value', function(snapshot) {
+		snapshot.forEach(function(data){
+			var totalAttendees = 0;
+			var onSiteAttendees = 0;
+			var onSiteStandInAttendees = 0;
+
+			var attendees = data.val().attendees;
+			var standInAttendees = data.val().standin_attendees
+
+			if (attendees) {
+				totalAttendees += Object.keys(attendees).length;
+				Object.keys(attendees).forEach(function(key){
+					var dbRef2 = new Firebase("https://nxnoc.firebaseio.com/attendees/" + key + "/checked_in");
+					dbRef2.once('value', function(snap){
+						if (snap.val() !== '') {
+							onSiteAttendees++;
+						}
+					})
+				});
+			}
+
+			if (onSiteStandInAttendees) {
+				totalAttendees += Object.keys(data.val().standin_attendees).length;
+				Object.keys(standInAttendees).forEach(function(key){
+					var dbRef2 = new Firebase("https://nxnoc.firebaseio.com/attendees/" + key + "/checked_in");
+					dbRef2.once('value', function(snap){
+						if (snap.val() !== '') {
+							onSiteStandInAttendees++;
+						}
+					})
+				});
+			}
+			
+			$('.stats-container').append('<tr id="event-'+data.key+'"><td class="stats-column">'+data.val().name+'</td><td class="stats-column second">'+onSiteAttendees+' + '+ onSiteStandInAttendees +'/'+totalAttendees+'</td></tr>')
+		})
+	})
 }
 

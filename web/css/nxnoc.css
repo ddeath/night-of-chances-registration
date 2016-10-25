@@ -100,14 +100,17 @@ section.checkin-by-name.hidden {
 }
 
 section.checkin-by-name,
-section.registration {
+section.registration,
+section.stats-section {
 	display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 1em;
 }
 
 section.checkin-by-name img.logo,
-section.registration img.logo {
+section.registration img.logo,
+section.stats-section img.logo {
 	margin-top: 2em;
 }
 
@@ -215,7 +218,8 @@ section.registration img.logo {
 }
 
 .people-add,
-.people-search {
+.people-search,
+.stats-show {
 	background-color: #8800FB;
     padding: 10px;
     border-radius: 5em;
@@ -223,6 +227,10 @@ section.registration img.logo {
     bottom: 2em;
     right: 2em;
     cursor: pointer;
+}
+.stats-section .people-add,
+.stats-show {
+	bottom: 10em;
 }
 
 .people-add:hover,
@@ -260,4 +268,17 @@ section.registration input {
 
 .tt-suggestion.tt-selectable {
 	color: #ccc;
+}
+
+.stats-column {
+	color: #fff;
+}
+
+.second-header {
+	text-align: center;
+}
+
+.stats-column.second {
+	margin-left: 1em;
+	text-align: center;
 }
