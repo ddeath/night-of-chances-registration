@@ -36,5 +36,30 @@ function login(){
 			initApp();
 		}
 	});
+
+	var dbRef = new Firebase("https://nxnoc.firebaseio.com/attendees");
+	dbRef.on('value', function(snapshot) {
+		checkedIn = 0;
+		totalCount = 0;
+		snapshot.forEach(function(data){
+			totalCount++;
+			if (data.val().checked_in !== '') {
+				checkedIn++;
+			}
+		})
+
+		$('.attendees-count').text(checkedIn + '/' + totalCount);
+	})
+
+	var dbRef = new Firebase("https://nxnoc.firebaseio.com/attendees");
+	dbRef.on('child_changed', function(snapshot) {
+		if (snapshot.val().checked_in !== '') {
+			checkedIn++;
+		} else {
+			checked_in--;
+		}
+
+		$('.attendees-count').text(checkedIn + '/' + totalCount);
+	})
 }
 
