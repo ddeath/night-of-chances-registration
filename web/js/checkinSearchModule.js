@@ -114,7 +114,8 @@ function showAttendeeInfo(attendee_id, check_presence)
 			}
 		}
 
-		new QRCode(document.getElementById("qrcode"), attendee_id);
+		$("#qrcode").empty();
+		var code = new QRCode(document.getElementById("qrcode"), attendee_id);
 
 		$('#attendee-name').text(snapshot.child('name').val());
 		$('#ticket-type').text(snapshot.child('ticket_type').val());
