@@ -282,3 +282,7 @@ section.registration input {
 	margin-left: 1em;
 	text-align: center;
 }
+
+#qrcode img {
+	margin: auto;
+}
