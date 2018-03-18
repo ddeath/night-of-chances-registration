@@ -1,0 +1,27 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "es6-promise": "^4.2.4",
+    "express": "^4.16.2",
+    "firebase-admin": "~4.2.1",
+    "firebase-functions": "^0.8.1",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "eslint": "^4.13.1",
+    "eslint-plugin-promise": "^3.6.0"
+  },
+  "private": true,
+  "scripts": {
+    "prepare": "babel ./*.es7 --retain-lines -d ./",
+    "lint": "./node_modules/.bin/eslint ."
+  }
+}
