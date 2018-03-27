@@ -30,11 +30,17 @@ export class HomeScreen extends Component {
   }
 
   componentDidMount() {
-    const { fetchEvents, fetchAttendees, fetchPartners } = this.props;
+    const { fetchActivities, fetchAttendees, fetchPartners, fetchActiveConference } = this.props;
 
-    fetchEvents();
-    fetchAttendees();
-    fetchPartners();
+    fetchActiveConference().then(conferenceId => {
+      if (conferenceId) {
+        fetchActivities(conferenceId);
+        fetchAttendees(conferenceId);
+        fetchPartners(conferenceId);
+      }
+
+      return conferenceId;
+    });
   }
 
   render () {

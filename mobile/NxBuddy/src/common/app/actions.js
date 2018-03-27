@@ -32,6 +32,11 @@ export const CHECK_EVENT_ATTENDEE_ATTENDANCE_START = 'CHECK_EVENT_ATTENDEE_ATTEN
 export const CHECK_EVENT_ATTENDEE_ATTENDANCE_SUCCESS = 'CHECK_EVENT_ATTENDEE_ATTENDANCE_SUCCEESS';
 export const CHECK_EVENT_ATTENDEE_ATTENDANCE_ERROR = 'CHECK_EVENT_ATTENDEE_ATTENDANCE_ERROR';
 
+export const FETCH_ACTIVE_CONFERENCE_ID = 'FETCH_ACTIVE_CONFERENCE_ID';
+export const FETCH_ACTIVE_CONFERENCE_ID_START = 'FETCH_ACTIVE_CONFERENCE_ID_START';
+export const FETCH_ACTIVE_CONFERENCE_ID_SUCCESS = 'FETCH_ACTIVE_CONFERENCE_ID_SUCCESS';
+export const FETCH_ACTIVE_CONFERENCE_ID_ERROR = 'FETCH_ACTIVE_CONFERENCE_ID_ERROR';
+
 
 export function updateUser(user) {
     return {
@@ -52,15 +57,27 @@ export function openPartnersList() {
     };
 }
 
-export function fetchEvents(force) {
+export function fetchActiveConference() {
+    return ({ getState }) => {
+        const ref = firebase.database().ref('activeConferenceId');
+        return {
+            type: FETCH_ACTIVE_CONFERENCE_ID,
+            payload: {
+                promise: ref.once('value').then(response => response.val()),
+            },
+        };
+    };
+}
+
+export function fetchActivities(conferenceId) {
     return ({ getState }) => {
         const state = getState();
 
-        if (!force && state.app.get('events')) {
+        if (state.app.get('events')) {
             return { type: 'NO_UPDATE' };
         }
 
-        const ref = firebase.database().ref('events');
+        const ref = firebase.database().ref(`activities/conference_${conferenceId}`);
         return {
             type: FETCH_EVENTS,
             payload: {
@@ -70,15 +87,15 @@ export function fetchEvents(force) {
     };
 }
 
-export function fetchPartners(force) {
+export function fetchPartners(conferenceId) {
     return ({ getState }) => {
         const state = getState();
 
-        if (!force && state.app.get('partners')) {
+        if (state.app.get('partners')) {
             return { type: 'NO_UPDATE' };
         }
 
-        const ref = firebase.database().ref('partners');
+        const ref = firebase.database().ref(`companies/conference_${conferenceId}`);
         return {
             type: FETCH_PARTNERS,
             payload: {
@@ -88,15 +105,15 @@ export function fetchPartners(force) {
     };
 }
 
-export function fetchAttendees(force) {
+export function fetchAttendees(conferenceId) {
     return ({ getState }) => {
         const state = getState();
 
-        if (!force && state.app.get('attendees')) {
+        if (state.app.get('attendees')) {
             return { type: 'NO_UPDATE' };
         }
 
-        const ref = firebase.database().ref('attendees');
+        const ref = firebase.database().ref(`attendees/conference_${conferenceId}`);
         return {
             type: FETCH_ATTENDEES,
             payload: {

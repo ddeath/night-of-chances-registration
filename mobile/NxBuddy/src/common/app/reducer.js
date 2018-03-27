@@ -13,6 +13,7 @@ const InitialState = Record({
   selectedEventKey: null,
   selectedPartnerId: null,
   partners: null,
+  activeConferenceId: null,
 }, 'app');
 
 export default function appReducer(state = new InitialState, action) {
@@ -25,6 +26,10 @@ export default function appReducer(state = new InitialState, action) {
         case actions.OPEN_PARTNERS_LISTS:
             return state.set('isPartnerListOpen', true)
                 .set('isEventsListOpen', false);
+
+        case actions.FETCH_ACTIVE_CONFERENCE_ID_SUCCESS: {
+            return state.set('activeConferenceId', action.payload);
+        }
 
         case actions.APP_OFFLINE:
             return state.set('online', false);
